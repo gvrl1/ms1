@@ -36,8 +36,8 @@ jobs:
         ingress: external
         targetPort: 5000
         environmentVariables: |
-          CONNECTION_STRING=${{ secrets.CONNECTION_STRING}}
-          OTEL_SERVICE_NAME=${{ secrets.OTEL_SERVICE_NAME}}
+          CONNECTION_STRING=${{ secrets.CONNECTION_STRING }}
+          OTEL_SERVICE_NAME=${{ secrets.OTEL_SERVICE_NAME }}
         
     
     - name: 'logout'
