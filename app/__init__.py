@@ -20,7 +20,7 @@ ma = Marshmallow()
 
 logger_provider = LoggerProvider()
 set_logger_provider(logger_provider)
-exporter = AzureMonitorLogExporter(connection_string=os.getenv('CONNECTION_STRING'))
+exporter = AzureMonitorLogExporter(connection_string='')
 logger_provider.add_log_record_processor(BatchLogRecordProcessor(exporter))
 
 # Configuración del manejador de registros y configuración del nivel de registro
@@ -36,6 +36,8 @@ def create_app() -> None:
     app.config.from_object(f)
     
     exporter.from_connection_string(app.config['CONNECTION_STRING'])
+
+    logger.info(f'Configuración de la aplicación completada. STRING: {app.config["CONNECTION_STRING"]}')
 
     # Configuración del proveedor de trazas para OpenTelemetry
     tracer_provider = TracerProvider(
