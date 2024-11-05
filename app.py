@@ -7,7 +7,7 @@ app = create_app()
 app.app_context().push()
 
 # Configuración del HealthCheck
-health = HealthCheck()
+health = HealthCheck(app)
 
 # Función de verificación de salud
 def app_working():
@@ -18,10 +18,6 @@ health.add_check(app_working)
 
 # Configura el endpoint de healthcheck manualmente
 app.add_url_rule("/healthcheck", "healthcheck", view_func=lambda: health.run())
-
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
