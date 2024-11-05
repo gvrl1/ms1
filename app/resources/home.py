@@ -8,10 +8,3 @@ def index():
         resp = jsonify({"microservicio": my_ip, "status": "ok"})
         resp.status_code = 200
         return resp
-
-@home.route('/health', methods=['GET'])
-def health():
-        resp = jsonify({"status": "ok"})
-        resp.status_code = 200
-        return resp
-

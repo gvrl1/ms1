@@ -7,7 +7,7 @@ app = create_app()
 app.app_context().push()
 
 # Configuración del HealthCheck
-health = HealthCheck(app)
+health = HealthCheck()
 
 # Función de verificación de salud
 def app_working():
