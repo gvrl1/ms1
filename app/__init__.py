@@ -1,13 +1,13 @@
 import logging
+import os
+
 from flask import Flask
 from flask_marshmallow import Marshmallow
-import os
 from app.config import config
 from opentelemetry.sdk._logs import LoggerProvider, LoggingHandler
 from opentelemetry._logs import set_logger_provider
 from azure.monitor.opentelemetry.exporter import AzureMonitorLogExporter
 from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
-
 from opentelemetry import trace
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
 from opentelemetry.instrumentation.requests import RequestsInstrumentor
